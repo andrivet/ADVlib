@@ -23,12 +23,12 @@ Most of the time, implementing callbacks is not a problem with C++ thanks to fun
 When the Standard Library is unavailable
 ========================================
 
-When using a C++ 11 (or later) compiler, the Standard Library is most of the time availaible, but not always. This is in particular a problem when developping for Arduino (and AVR in general).
+When using a C++ 11 (or later) compiler, the Standard Library is most of the time available, but not always. This is in particular a problem when developing for Arduino (and AVR in general).
 There are several reasons for that. One of them is that the Standard Library is heavy and it is not optimized for embedded systems with, for example, only 2048 bytes of RAM (as it is the case of the `Arduino Uno`_).
 
-There some partial implementations of the STL (`Standard Template Library`_), a subset of the Standard Library. These implementations do implement algoritms and entities such as vector (most of the time, in a pre-C++11 way). But they lack C++ 11 entities such as unique_ptr_.
+There some partial implementations of the STL (`Standard Template Library`_), a subset of the Standard Library. These implementations do implement algorithms and entities such as vector (most of the time, in a pre-C++11 way). But they lack C++ 11 entities such as unique_ptr_.
 
-When developping `ADVi3++`_, I face these limitations many times and thus decided to create a minimal implementation of what I need.
+When developing `ADVi3++`_, I face these limitations many times and thus decided to create a minimal implementation of what I need.
 
 .. _`Arduino Uno`: https://store.arduino.cc/usa/arduino-uno-rev3
 
@@ -126,7 +126,7 @@ Callbacks are used this way:
 Unit Tests
 ==========
 
-The project constains unit tests for both ``unique_ptr`` and ``Callback``. They are located inside the ``tests`` directory and give various example of how to use ``unique_ptr`` and ``Callback``.
+The project contains unit tests for both ``unique_ptr`` and ``Callback``. They are located inside the ``tests`` directory and give various example of how to use ``unique_ptr`` and ``Callback``.
 
 Copyright
 =========
