@@ -48,6 +48,26 @@ SCENARIO("Callbacks (void, no parameters) can be constructed in various ways", "
             CHECK(s == 42);
         }
     }
+    WHEN("A callback is constructed from another null callback")
+    {
+        MyCallback cb1{};
+        MyCallback cb2{cb1};
+        THEN("It can be called and it executes and does nothing")
+        {
+            cb2();
+            CHECK(s == 0);
+        }
+    }
+    WHEN("A callback is constructed from another non-null callback")
+    {
+        MyCallback cb1{[]{ s = 42; }};
+        MyCallback cb2{cb1};
+        THEN("It can be called and it executes")
+        {
+            cb2();
+            CHECK(s == 42);
+        }
+    }
     WHEN("A callback is constructed from a lambda without capture")
     {
         MyCallback cb{[]{ s = 42; }};
