@@ -203,6 +203,10 @@ SCENARIO("Callbacks (int, two parameters) can be assigned in various ways", "[ca
             {
                 CHECK_FALSE(cb2);
             }
+            THEN("The new callback is false")
+            {
+                CHECK_FALSE(cb);
+            }
         }
         WHEN("It is assigned to another non-null callback")
         {
@@ -211,6 +215,10 @@ SCENARIO("Callbacks (int, two parameters) can be assigned in various ways", "[ca
             THEN("The original callback is true")
             {
                 CHECK(cb2);
+            }
+            THEN("The new callback is true")
+            {
+                CHECK(cb);
             }
         }
     }
