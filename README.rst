@@ -1,7 +1,7 @@
-ADVcallback
+ADVlib
 ===========
 
-**ADVcallback** is a simple callback library for C++ 11 when the `C++ Standard Library`_ is not an option or when function_ is not appropriate.
+**ADVlib** is a simple library for C++ 14 when the `C++ Standard Library`_ is not an option or is not appropriate.
 
 .. _`C++ Standard Library`: https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library
 
@@ -19,6 +19,8 @@ Most of the time, implementing callbacks is not a problem with C++ thanks to fun
 * When the Standard Library is not available. It is in particular the case with AVR (and with IoT in general).
 
 * When function_ is too complex to implement callbacks
+
+**Note:** This library was previously called **ADVcallback** but I have renamed it since it contains more than just callbacks.
 
 When the Standard Library is unavailable
 ========================================
@@ -126,7 +128,7 @@ Callbacks are used this way:
 Unit Tests
 ==========
 
-The project contains unit tests for both ``unique_ptr`` and ``Callback``. They are located inside the ``tests`` directory and give various example of how to use ``unique_ptr`` and ``Callback``.
+The project contains unit tests for ``unique_ptr``, ``Callback`` and ```Crtp`` (for compile-time polymorphism). They are located inside the ``tests`` directory and give various example of how to use ``unique_ptr``, ``Callback`` and ``Crtp``.
 
 Copyright
 =========

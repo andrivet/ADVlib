@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
-project(ADVcallback_test)
+project(ADVlib)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 set(CATCH_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/vendors/Catch2)
 
@@ -14,6 +14,6 @@ add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 
 include_directories(${HEADER_DIR})
-add_executable(ADVcallback_test ${SOURCE_FILES})
-target_link_libraries(ADVcallback_test Catch)
+add_executable(ADVlib ${SOURCE_FILES})
+target_link_libraries(ADVlib Catch)
 
