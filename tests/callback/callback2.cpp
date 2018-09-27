@@ -2,7 +2,7 @@
 #include "ADVcallback.h"
 #include "catch.hpp"
 
-using namespace andrivet;
+using namespace adv;
 
 using MyCallback = Callback<int(*)(int, int)>;
 

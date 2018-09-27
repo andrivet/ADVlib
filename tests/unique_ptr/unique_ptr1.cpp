@@ -2,7 +2,7 @@
 #include "ADVunique_ptr.h"
 #include "catch.hpp"
 
-using namespace andrivet;
+using namespace adv;
 
 namespace
 {

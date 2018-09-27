@@ -4,7 +4,7 @@
 
 // https://github.com/gcc-mirror/gcc/tree/master/libstdc%2B%2B-v3/testsuite/20_util/unique_ptr
 
-using namespace andrivet;
+using namespace adv;
 
 namespace
 {
