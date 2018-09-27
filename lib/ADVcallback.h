@@ -23,7 +23,7 @@
 
 #include "ADVunique_ptr.h"
 
-namespace andrivet
+namespace adv
 {
 
 template<typename R, typename...A>
@@ -126,7 +126,7 @@ struct Callback<R(*)(A...)>
     Callback(const Self& cb): callable_{ cb ? cb.callable_->clone() : nullptr } {}
 
     // Assignment
-    Callback& operator=(const Self& cb) { if(&cb != this) callable_ = cb ? cb.callable_->clone() : nullptr;
+    Callback& operator=(const Self& cb) { if(&cb != this) { callable_ = cb ? cb.callable_->clone() : nullptr; }
         return *this; };
     Callback& operator=(nullptr_t) { callable_ = nullptr; return *this; }
 
