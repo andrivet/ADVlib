@@ -87,7 +87,7 @@ namespace
 
     struct D1: D<D1>
     {
-        void do_something() { D::do_something(); value_ += 2; }
+        void do_something() { Parent::do_something(); value_ += 2; }
     };
 
     struct D2: D<D2>
@@ -140,6 +140,26 @@ namespace
     private:
         friend F;
         int do_something() { return 0xFF10; }
+    };
+
+    // Call a member function in the middle of a deep hierarchy
+
+    template<typename Self>
+    struct G: Crtp<Self, G>
+    {
+        int something() { return this->self().do_something(); }
+    };
+
+    template<typename Derived>
+    struct G1: G<Derived>
+    {
+    private:
+        friend G<Derived>;
+        int do_something() { return 0x1100; }
+    };
+
+    struct GG1: G1<GG1>
+    {
     };
 }
 
@@ -299,6 +319,22 @@ SCENARIO("Call a member function in a deep hierarchy", "[poly]")
             THEN("The member function of the Child was called")
             {
                 REQUIRE(r == 0xFF10);
+            }
+        }
+    }
+}
+
+SCENARIO("Call a member function in the middle of a deep hierarchy", "[poly]")
+{
+    GIVEN("A Child of a Child can be constructed")
+    {
+        GG1 child1{};
+        WHEN("The member function is called")
+        {
+            auto r = child1.something();
+            THEN("The member function of the Child was called")
+            {
+                REQUIRE(r == 0x1100);
             }
         }
     }
