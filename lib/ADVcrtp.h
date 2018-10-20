@@ -37,9 +37,12 @@ struct Crtp
     Self& self()             { return static_cast<Self&>(*this); }
     Self const& self() const { return static_cast<Self const&>(*this); }
 
+protected:
+    using Parent = P<Self>;
+
 private:
     Crtp() = default;
-    friend P<Self>;
+    friend Parent;
 };
 
 }
