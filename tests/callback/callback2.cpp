@@ -24,8 +24,8 @@ namespace
 
         int this_method(int p1, int p2)
         {
-            MyCallback cb{[this](int p1, int p2){ this->a = p1; return p2; }};
-            return cb(p1, p2);
+            this->a = p1;
+            return p2;
         }
 
         int a = 0;
