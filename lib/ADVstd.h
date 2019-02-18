@@ -21,9 +21,9 @@
 #ifndef ADVSTD_H
 #define ADVSTD_H
 
-namespace adv {
+#include <new>
 
-//#include <new>
+namespace adv {
 
 using size_t = decltype(sizeof(int));
 using nullptr_t = decltype(nullptr);
@@ -104,13 +104,13 @@ template<typename T> struct enable_if<true, T> { using type = T; };
 template< bool B, typename T = void > using enable_if_t = typename enable_if<B, T>::type;
 
 template<typename I, typename O>
-constexpr O copy(I first, I last, O d_first)
+inline O copy(I first, I last, O d_first)
 {
     while(first != last)
         *d_first++ = *first++;
     return d_first;
 }
 
-}
+} // namespace adv
 
 #endif
